@@ -49,6 +49,7 @@ No requirements.
 | <a name="input_create"></a> [create](#input\_create) | Controls whether resources should be created. | `bool` | `true` | no |
 | <a name="input_create_package"></a> [create\_package](#input\_create\_package) | Controls whether Lambda package should be created. Can be used with var.create=false to ensure the function package builds during CI. | `bool` | `true` | no |
 | <a name="input_name_prefix"></a> [name\_prefix](#input\_name\_prefix) | Prefix to apply to all resource names. | `string` | `""` | no |
+| <a name="input_report_only"></a> [report\_only](#input\_report\_only) | Run the lambda without taking any actions, i.e. only report what would happen | `string` | `"false"` | no |
 | <a name="input_schedule"></a> [schedule](#input\_schedule) | Defines how frequently the users are checked. | `string` | `"rate(24 hours)"` | no |
 | <a name="input_tags"></a> [tags](#input\_tags) | A map of tags to assign to resources. | `map(string)` | `{}` | no |
 
