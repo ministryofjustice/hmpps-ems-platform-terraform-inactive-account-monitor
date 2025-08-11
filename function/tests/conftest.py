@@ -219,6 +219,36 @@ def inactive_user():
     )
 
 
+@pytest.fixture
+def root_user():
+    return User(
+        username="<root_account>",
+        arn="arn:aws:iam::132044171362:root",
+        user_creation_time=datetime.datetime.fromisoformat("2023-06-01T00:00:00+00:00"),
+        password_enabled=True,
+        password_last_used=datetime.datetime.fromisoformat("2023-06-02T00:00:00+00:00"),
+        password_last_changed=datetime.datetime.fromisoformat(
+            "2023-06-01T00:00:00+00:00"
+        ),
+        password_next_rotation="N/A",
+        mfa_active=True,
+        access_key_1_active=False,
+        access_key_1_last_rotated="N/A",
+        access_key_1_last_used_date="N/A",
+        access_key_1_last_used_region="N/A",
+        access_key_1_last_used_service="N/A",
+        access_key_2_active=False,
+        access_key_2_last_rotated="N/A",
+        access_key_2_last_used_date="N/A",
+        access_key_2_last_used_region="N/A",
+        access_key_2_last_used_service="N/A",
+        cert_1_active=False,
+        cert_1_last_rotated="N/A",
+        cert_2_active=False,
+        cert_2_last_rotated="N/A",
+    )
+
+
 # Freeze time to 2023-08-01 00:00 to enable repeatable datetime comparisons
 @pytest.fixture
 def freeze_time(monkeypatch):

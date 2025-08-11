@@ -3,12 +3,8 @@ import datetime
 from src.models import User
 
 
-def has_console_access_enabled(user: User) -> bool:
-    # root user is always "not_supported"
-    if user.password_enabled == "not_supported":
-        return False
-
-    return user.password_enabled
+def is_root_user(user: User) -> bool:
+    return user.username == "<root_account>"
 
 
 def has_never_logged_in(user: User) -> bool:
@@ -43,8 +39,11 @@ def has_exceeded_password_reset_grace_period(
 def is_inactive(
     user: User, inactivity_threshold: int, reset_grace_period_threshold: int
 ):
+    if is_root_user(user):
+        return False
+
     # Can't be inactive without a password
-    if not has_console_access_enabled(user):
+    if not user.password_enabled:
         return False
 
     # Allow users some time to login after a account creation
