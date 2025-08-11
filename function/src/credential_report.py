@@ -1,5 +1,5 @@
 from time import sleep
-from typing import Any, List
+from typing import Any, List, Type
 
 from aws_lambda_powertools import Logger
 from pydantic import BaseModel
@@ -11,7 +11,7 @@ logger = Logger(service="inactive-account-monitor")
 
 
 # Utility function to generate pydantic models from args (normally kwargs)
-def populate_model_from_args(model: BaseModel, args: List[Any]):
+def populate_model_from_args(model: Type[BaseModel], args: List[Any]):
     return model(**{field: arg for field, arg in zip(model.model_fields, args)})
 
 
