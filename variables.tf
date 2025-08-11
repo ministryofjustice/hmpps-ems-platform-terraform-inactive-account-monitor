@@ -16,6 +16,12 @@ variable "name_prefix" {
   type        = string
 }
 
+variable "report_only" {
+  default     = "false"
+  description = "Run the lambda without taking any actions, i.e. only report what would happen"
+  type        = string
+}
+
 variable "schedule" {
   default     = "rate(24 hours)"
   description = "Defines how frequently the users are checked."

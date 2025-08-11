@@ -23,6 +23,10 @@ module "function" {
     }
   ]
 
+  environment_variables = {
+    report_only = var.report_only
+  }
+
   tags = merge(
     var.tags,
     {
