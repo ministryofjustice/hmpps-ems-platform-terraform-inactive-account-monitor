@@ -1,0 +1,23 @@
+[tool.poetry]
+name = "function"
+version = "0.1.0"
+description = ""
+authors = ["Ben Carter <ben.carter@justice.gov.uk>"]
+readme = "README.md"
+packages = [{include = "src"}]
+
+[tool.poetry.dependencies]
+python = "^3.11"
+aws-lambda-powertools = "^3.4.0"
+pydantic = "^2.9.2"
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^8.3.1"
+black = "^24.4.2"
+isort = "^5.13.2"
+mypy = "^1.11.2"
+moto = "^5.0.15"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
