@@ -53,6 +53,10 @@ def test_inactive_user_is_inactive(freeze_time, inactive_user):
     )
 
 
+def test_root_user_is_not_inactive(freeze_time, root_user):
+    assert is_inactive(root_user, MOCK_INACTIVITY_THRESHOLD, MOCK_GRACE_PERIOD) == False
+
+
 def test_recently_reenabled_user_is_not_inactive(
     freeze_time, recently_reenabled_user_with_no_recent_login
 ):
